@@ -1850,6 +1850,7 @@ window.onload = function () {
         * This function is called from buildtree and also from angular when we do: cy.json(data['workflow']) from angular
         */
         window.cy_setup_events = function () {
+
 			
 			//initializeTree();		
             // collapse - expand nodes
@@ -1869,6 +1870,12 @@ window.onload = function () {
 								angular.element($('#angular_div')).scope().workflop_step_node_clicked(this_data);
 							});
 						}
+						
+					//** when a noce is clicked, make sure that it's tooltip is being destroyed. Tooltip is only shown on mouse over*//
+					mytippys.forEach(function (mytippy) {
+						mytippy.destroy(mytippy.popper);
+					});
+
 
             });
 
